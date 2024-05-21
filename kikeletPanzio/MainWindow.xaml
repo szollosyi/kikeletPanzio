@@ -19,26 +19,43 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
-            <Label Content="Szobaszáma"/>
-            <ComboBox x:Name="cbxSzobaszama" Margin="10"/>
+            <Label Content="Szobaszám"/>
+            <ComboBox x:Name="cbxSzobaszam" Margin="10">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="6"/>
+            </ComboBox>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Content="Férőhely"/>
-            <ComboBox x:Name="cbxFerohely" Margin="10"/>
+            <ComboBox x:Name="cbxFerohely" Margin="10" SelectionChanged="cbxFerohely_SelectionChanged">
+                <ComboBoxItem Content="2 fő"/>
+                <ComboBoxItem Content="3 fő"/>
+                <ComboBoxItem Content="4 fő"/>
+            </ComboBox>
         </StackPanel>
         <StackPanel Grid.Column="2">
             <Label Content="Ár"/>
-            <TextBox x:Name="tbxAr" Margin="10" Height="20"/>
+            <TextBlock x:Name="tbxAr" Margin="10" Height="22"/>
         </StackPanel>
 
         <Border Grid.Row="1" Grid.ColumnSpan="3">
-            <DataGrid/>
+            <DataGrid x:Name="dgrSzobak" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Szobaszám" Binding="{Binding Szobaszam}"/>
+                    <DataGridTextColumn Header="Férőhely" Binding="{Binding Ferohely}"/>
+                    <DataGridTextColumn Header="Ár (Ft)" Binding="{Binding Ar}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Border>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="btnMentes" Width="100" Content="Mentés" Height="25" Click="btnMentes_Click" Margin="10"/>
-            <Button x:Name="btnMegse" Content="Mégse" Width="100" Height="25" Click="btnMegse_Click" Margin="10"/>
+            <Button x:Name="btnTorles" Content="Törlés" Width="100" Height="25" Click="btnTorles_Click" Margin="10"/>
         </StackPanel>
-        
+
     </Grid>
 </Window>
