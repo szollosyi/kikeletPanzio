@@ -24,5 +24,15 @@ namespace kikeletPanzio
         {
             InitializeComponent();
         }
+
+        private void btnMentes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMegse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

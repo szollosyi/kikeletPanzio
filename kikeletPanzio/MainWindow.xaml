@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kikeletPanzio"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Szoba Választó" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label Content="Szobaszáma"/>
+            <ComboBox x:Name="cbxSzobaszama" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Content="Férőhely"/>
+            <ComboBox x:Name="cbxFerohely" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <Label Content="Ár"/>
+            <TextBox x:Name="tbxAr" Margin="10" Height="20"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Grid.ColumnSpan="3">
+            <DataGrid/>
+        </Border>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnMentes" Width="100" Content="Mentés" Height="25" Click="btnMentes_Click" Margin="10"/>
+            <Button x:Name="btnMegse" Content="Mégse" Width="100" Height="25" Click="btnMegse_Click" Margin="10"/>
+        </StackPanel>
         
     </Grid>
 </Window>
