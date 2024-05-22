@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:kikeletPanzio"
         mc:Ignorable="d"
         Title="Szoba Választó" Height="450" Width="800">
-    <Grid Background="AliceBlue">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFF7CF4"/>
+                <GradientStop Color="Red" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition Height="200"/>
@@ -52,7 +58,7 @@
         </StackPanel>
 
         <Border Grid.Row="1" Grid.ColumnSpan="4" Margin="25">
-            <DataGrid x:Name="dgrSzobak" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+            <DataGrid x:Name="dgrSzobak" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="LightGray">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Szobaszám" Binding="{Binding Szobaszam}"/>
                     <DataGridTextColumn Header="Férőhely" Binding="{Binding Ferohely}"/>
