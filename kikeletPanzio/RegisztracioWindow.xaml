@@ -1,0 +1,31 @@
+﻿<Window x:Class="kikeletPanzio.RegisztracioWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ügyfél Regisztráció" Height="300" Width="400">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Név:" Margin="5"/>
+        <TextBox x:Name="txtNev" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Születési Dátum:" Margin="5"/>
+        <DatePicker x:Name="dpSzuletesiDatum" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="E-mail:" Margin="5"/>
+        <TextBox x:Name="txtEmail" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+        <CheckBox x:Name="chkVIP" Content="VIP Ügyfél" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"/>
+
+        <Button x:Name="btnRegisztracio" Content="Regisztráció" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Click="btnRegisztracio_Click"/>
+    </Grid>
+</Window>

@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:kikeletPanzio"
         mc:Ignorable="d"
         Title="Szoba Választó" Height="450" Width="800">
-    <Grid>
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -28,6 +29,8 @@
                 <ComboBoxItem Content="5"/>
                 <ComboBoxItem Content="6"/>
             </ComboBox>
+            <Label Content="Foglalás Kezdete" Margin="10"/>
+            <DatePicker x:Name="dtpKezdet" Width="175"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Content="Férőhely"/>
@@ -36,26 +39,42 @@
                 <ComboBoxItem Content="3 fő"/>
                 <ComboBoxItem Content="4 fő"/>
             </ComboBox>
+            <Label Content="Foglalás Vége" Margin="10"/>
+            <DatePicker x:Name="dtpVege" Width="175"/>
         </StackPanel>
         <StackPanel Grid.Column="2">
             <Label Content="Ár"/>
             <TextBlock x:Name="tbxAr" Margin="10" Height="22"/>
         </StackPanel>
+        <StackPanel Grid.Column="3">
+            <Label Content="Ügyfél"/>
+            <ComboBox x:Name="cbxUgyfel" Margin="10" Height="22"/>
+        </StackPanel>
 
-        <Border Grid.Row="1" Grid.ColumnSpan="3">
+        <Border Grid.Row="1" Grid.ColumnSpan="4" Margin="25">
             <DataGrid x:Name="dgrSzobak" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Szobaszám" Binding="{Binding Szobaszam}"/>
                     <DataGridTextColumn Header="Férőhely" Binding="{Binding Ferohely}"/>
                     <DataGridTextColumn Header="Ár (Ft)" Binding="{Binding Ar}"/>
+                    <DataGridTextColumn Header="Kedvezményes Ár (Ft)" Binding="{Binding KedvezmenyesAr}"/>
+                    <DataGridTextColumn Header="Ügyfél neve" Binding="{Binding UgyfelNev}"/>
+                    <DataGridTextColumn Header="E-mail" Binding="{Binding UgyfelEmail}"/>
+                    <DataGridTextColumn Header="Születési dátum" Binding="{Binding UgyfelSzuletesiDatum, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridCheckBoxColumn Header="VIP" Binding="{Binding UgyfelVIP}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="btnMentes" Width="100" Content="Mentés" Height="25" Click="btnMentes_Click" Margin="10"/>
-            <Button x:Name="btnTorles" Content="Törlés" Width="100" Height="25" Click="btnTorles_Click" Margin="10"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Ügyfél Regisztráció" Click="btnUgyfelRegisztracio_Click" Height="25" Width="150"/>
         </StackPanel>
 
+        <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnMentes" Width="100" Content="Mentés" Height="25" Click="btnMentes_Click" Margin="10"/>
+                <Button x:Name="btnTorles" Content="Törlés" Width="100" Height="25" Click="btnTorles_Click" Margin="10"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
