@@ -27,7 +27,7 @@
 
         <StackPanel Grid.Column="0">
             <Label Content="Szobaszám"/>
-            <ComboBox x:Name="cbxSzobaszam" Margin="10">
+            <ComboBox x:Name="cbxSzobaszam" Margin="10" SelectionChanged="cbxSzobaszam_SelectionChanged">
                 <ComboBoxItem Content="1"/>
                 <ComboBoxItem Content="2"/>
                 <ComboBoxItem Content="3"/>
@@ -40,7 +40,7 @@
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Content="Férőhely"/>
-            <ComboBox x:Name="cbxFerohely" Margin="10" SelectionChanged="cbxFerohely_SelectionChanged">
+            <ComboBox x:Name="cbxFerohely" Margin="10" IsEnabled="False">
                 <ComboBoxItem Content="2 fő"/>
                 <ComboBoxItem Content="3 fő"/>
                 <ComboBoxItem Content="4 fő"/>
@@ -67,6 +67,9 @@
                     <DataGridTextColumn Header="Ügyfél neve" Binding="{Binding UgyfelNev}"/>
                     <DataGridTextColumn Header="E-mail" Binding="{Binding UgyfelEmail}"/>
                     <DataGridTextColumn Header="Születési dátum" Binding="{Binding UgyfelSzuletesiDatum, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Foglalás Kezdete" Binding="{Binding FoglalasKezdete, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Foglalás Vége" Binding="{Binding FoglalasVege, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Foglalás Státusza" Binding="{Binding FoglalasStatusza}"/>
                     <DataGridCheckBoxColumn Header="VIP" Binding="{Binding UgyfelVIP}"/>
                 </DataGrid.Columns>
             </DataGrid>
